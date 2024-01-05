@@ -1,0 +1,7 @@
+{
+  "name": "watches-exercise-ii",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
