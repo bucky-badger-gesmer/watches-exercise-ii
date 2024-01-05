@@ -21,6 +21,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "@ionic/react/css/ionic-swiper.css";
 import { useState } from "react";
 import "swiper/css";
+import Price from "../components/Price";
 import CreateListing from "./CreateListing";
 import "./Home.css";
 
@@ -114,7 +115,7 @@ const Home: React.FC = () => {
             <IonCard style={{ width: "100%", height: 500 }}>poop2</IonCard>
           </SwiperSlide>
           <SwiperSlide>
-            <IonCard style={{ width: "100%", height: 500 }}>poop3</IonCard>
+            <Price />
           </SwiperSlide>
         </Swiper>
       </IonContent>
