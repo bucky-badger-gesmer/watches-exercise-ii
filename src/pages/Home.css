@@ -1,12 +1,11 @@
 .tabs {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
+  padding-left: 0;
 
   li {
     font-weight: bolder;
-    margin-left: 10px;
-    margin-right: 10px;
   }
 
   li:hover {

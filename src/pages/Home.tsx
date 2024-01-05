@@ -49,7 +49,7 @@ const Home: React.FC = () => {
               <IonIcon slot="icon-only" icon={chevronBack} />
             </IonButton>
           </IonButtons>
-          <IonTitle>CREATE LISTING</IonTitle>
+          <IonTitle style={{ textAlign: "center" }}>CREATE LISTING</IonTitle>
           <IonButtons slot="end">
             <IonButton>
               <IonIcon slot="icon-only" icon={close} />
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
             <CreateListing />
           </SwiperSlide>
           <SwiperSlide>
-            <IonCard style={{ width: "100%", height: 500 }}>poop2</IonCard>
+            <IonCard style={{ width: "100%" }}>poop2</IonCard>
           </SwiperSlide>
           <SwiperSlide>
             <Price />

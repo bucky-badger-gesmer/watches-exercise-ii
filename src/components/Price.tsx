@@ -19,7 +19,9 @@ const Price: React.FC = () => {
           style={{ display: "flex", flexDirection: "column", marginTop: 20 }}
         >
           <IonLabel>LIST PRICE</IonLabel>
-          <h3>18,250 USDC</h3>
+          <h3>
+            <strong>18,250 USDC</strong>
+          </h3>
         </div>
       </IonItem>
     </IonCard>
