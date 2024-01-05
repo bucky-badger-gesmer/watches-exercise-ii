@@ -1,4 +1,4 @@
-import { IonCard } from "@ionic/react";
+import { IonCard, IonItem, IonLabel } from "@ionic/react";
 import { ConfigProvider, Select, theme } from "antd";
 
 const CreateListing: React.FC = () => {
@@ -22,8 +22,8 @@ const CreateListing: React.FC = () => {
 
   return (
     <IonCard style={{ width: "100%", height: 500 }}>
-      <>
-        <h3 style={{ textAlign: "left", color: "white" }}>Includes</h3>
+      <IonItem>
+        <IonLabel>INCLUDES</IonLabel>
         <ConfigProvider
           theme={{
             algorithm: theme.darkAlgorithm,
@@ -42,11 +42,9 @@ const CreateListing: React.FC = () => {
             ]}
           />
         </ConfigProvider>
-      </>
-      <>
-        <h3 style={{ textAlign: "left", color: "white" }}>
-          Year of Production
-        </h3>
+      </IonItem>
+      <IonItem>
+        <IonLabel>YEAR OF PRODUCTION</IonLabel>
         <ConfigProvider
           theme={{
             algorithm: theme.darkAlgorithm,
@@ -58,9 +56,10 @@ const CreateListing: React.FC = () => {
             options={options}
           />
         </ConfigProvider>
-      </>
-      <>
-        <h3 style={{ textAlign: "left", color: "white" }}>Condition</h3>
+      </IonItem>
+
+      <IonItem>
+        <IonLabel>CONDITION</IonLabel>
         <ConfigProvider
           theme={{
             algorithm: theme.darkAlgorithm,
@@ -85,7 +84,7 @@ const CreateListing: React.FC = () => {
             ]}
           />
         </ConfigProvider>
-      </>
+      </IonItem>
     </IonCard>
   );
 };
