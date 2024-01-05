@@ -1,0 +1,12 @@
+.square {
+  width: 100px; /* Size of the square */
+  height: 100px; /* Size of the square */
+  border: 2px dotted grey; /* Dotted border */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+}
+
+.square:hover {
+  cursor: pointer;
+}
