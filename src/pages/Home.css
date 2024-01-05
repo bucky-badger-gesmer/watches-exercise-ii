@@ -1,0 +1,15 @@
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+
+  li {
+    font-weight: bolder;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+}
