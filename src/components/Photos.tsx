@@ -1,10 +1,15 @@
 import { Camera, CameraResultType, CameraSource } from "@capacitor/camera";
-import { IonCard, IonItem, IonLabel } from "@ionic/react";
+import { IonCard, IonImg, IonItem, IonLabel } from "@ionic/react";
 import { useState } from "react";
 import "./Photos.css";
 
+export interface UserPhoto {
+  filepath: string;
+  webviewPath?: string;
+}
+
 const Photos: React.FC = () => {
-  const [photo, setPhoto] = useState<string>();
+  const [photos, setPhotos] = useState<UserPhoto[]>([]);
 
   const takePicture = async () => {
     try {
@@ -13,8 +18,15 @@ const Photos: React.FC = () => {
         source: CameraSource.Camera,
         quality: 100,
       });
-
-      setPhoto(cameraPhoto.webPath);
+      const fileName = Date.now() + ".jpeg";
+      const newPhotos = [
+        {
+          filepath: fileName,
+          webviewPath: cameraPhoto.webPath,
+        },
+        ...photos,
+      ];
+      setPhotos(newPhotos);
     } catch (error) {
       console.error("Error taking photo", error);
     }
@@ -31,8 +43,14 @@ const Photos: React.FC = () => {
         </ul>
       </IonItem>
       <IonItem>
-        {/* <IonButton onClick={takePicture}>Take Photo</IonButton>
-        {photo && <IonImg src={photo} />} */}
+        {photos.length > 0 &&
+          photos.map((photo) => {
+            return (
+              <div className="square">
+                <IonImg src={photo.webviewPath} />
+              </div>
+            );
+          })}
         <div className="square" onClick={takePicture}>
           <span className="icon">+</span>
         </div>
