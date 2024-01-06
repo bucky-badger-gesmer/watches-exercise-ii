@@ -10,13 +10,16 @@ import {
   IonHeader,
   IonIcon,
   IonImg,
+  IonLabel,
   IonPage,
   IonRow,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { chevronBack, close } from "ionicons/icons";
+import { chevronBack, close, watch } from "ionicons/icons";
 import { useHistory } from "react-router";
+import "./CreateListing.css";
+import "./ReviewListing.css";
 
 const ReviewListing: React.FC = () => {
   const history = useHistory();
@@ -62,12 +65,60 @@ const ReviewListing: React.FC = () => {
                   </div>
                 </IonCol>
               </IonRow>
+              <IonRow>
+                <div className="watchInfoContainer">
+                  <div>
+                    <p>YEAR</p>
+                    <h2 style={{ color: "white", fontWeight: "bolder" }}>
+                      2022
+                    </h2>
+                  </div>
+                  <div>
+                    <p>INCULDES</p>
+                    <h2 style={{ color: "white", fontWeight: "bolder" }}>
+                      Card/Papers & Box
+                    </h2>
+                  </div>
+                  <div>
+                    <p>CONDITION</p>
+                    <h2 style={{ color: "white", fontWeight: "bolder" }}>
+                      Unworn
+                    </h2>
+                  </div>
+                </div>
+              </IonRow>
+              <IonRow>
+                <div className="square">
+                  <IonIcon icon={watch} />
+                </div>
+                <div className="square">
+                  <IonIcon icon={watch} />
+                </div>
+                <div className="square">
+                  <IonIcon icon={watch} />
+                </div>
+              </IonRow>
+              <IonRow>
+                <div>
+                  <p>LIST PRICE</p>
+                  <h2 style={{ color: "white" }}>
+                    <strong>18,250 USDC</strong>
+                  </h2>
+                </div>
+              </IonRow>
             </IonGrid>
           </IonCardContent>
         </IonCard>
       </IonContent>
       <IonFooter>
         <IonToolbar>
+          <IonLabel>
+            By continuing, you agree to our listing{" "}
+            <a style={{ color: "inherit", textDecoration: "underline" }}>
+              Terms & Conditions
+            </a>
+            .
+          </IonLabel>
           <IonButton color="light" style={{ width: "100%" }}>
             SUBMIT
           </IonButton>

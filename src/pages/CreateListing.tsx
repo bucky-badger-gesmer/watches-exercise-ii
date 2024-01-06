@@ -21,7 +21,7 @@ const CreateListing: React.FC = () => {
   });
 
   return (
-    <IonCard style={{ width: "100%", height: 500 }}>
+    <IonCard style={{ width: "100%" }}>
       <IonItem>
         <IonLabel>INCLUDES</IonLabel>
         <ConfigProvider
@@ -57,7 +57,6 @@ const CreateListing: React.FC = () => {
           />
         </ConfigProvider>
       </IonItem>
-
       <IonItem>
         <IonLabel>CONDITION</IonLabel>
         <ConfigProvider
