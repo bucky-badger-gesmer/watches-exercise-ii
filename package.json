@@ -25,7 +25,10 @@
     "antd": "^5.12.8",
     "ionicons": "^7.0.0",
     "react": "^18.2.0",
+    "react-cropper": "^2.3.3",
     "react-dom": "^18.2.0",
+    "react-easy-crop": "^5.0.4",
+    "react-image-crop": "^11.0.4",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
     "swiper": "^11.0.5"
