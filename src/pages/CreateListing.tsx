@@ -1,7 +1,12 @@
 import { IonCard, IonItem, IonLabel } from "@ionic/react";
 import { ConfigProvider, Select, theme } from "antd";
+import { useState } from "react";
 
 const CreateListing: React.FC = () => {
+  const [includes, setIncludes] = useState("");
+  const [productionYear, setProductionYear] = useState("");
+  const [condition, setCondition] = useState("");
+
   const currentYear = new Date().getFullYear();
   const years = [];
   for (let year = currentYear; year >= 1900; year--) {
@@ -20,6 +25,19 @@ const CreateListing: React.FC = () => {
     label: "Unknown",
   });
 
+  const handleIncludesChange = (e: any) => {
+    setIncludes(e);
+  };
+
+  const handleProductionYearChange = (e: any) => {
+    setProductionYear(e);
+  };
+
+  const handleConditionChange = (e: any) => {
+    setCondition(e);
+  };
+
+  console.log("poop", includes, productionYear, condition);
   return (
     <IonCard style={{ width: "100%", height: 500 }}>
       <IonItem>
@@ -40,6 +58,10 @@ const CreateListing: React.FC = () => {
                 label: "Full Set - Card & Box",
               },
             ]}
+            onChange={handleIncludesChange}
+            value={includes}
+            // onSelect={handleIncludesChange}
+            // allowClear={true}
           />
         </ConfigProvider>
       </IonItem>
@@ -54,6 +76,8 @@ const CreateListing: React.FC = () => {
             style={{ width: "100%" }}
             defaultValue={"Unknown"}
             options={options}
+            onChange={handleProductionYearChange}
+            value={productionYear}
           />
         </ConfigProvider>
       </IonItem>
@@ -66,7 +90,7 @@ const CreateListing: React.FC = () => {
         >
           <Select
             style={{ width: "100%" }}
-            defaultValue={"Unknown"}
+            // defaultValue={"Unknown"}
             options={[
               {
                 value: "Unworn",
@@ -81,6 +105,8 @@ const CreateListing: React.FC = () => {
                 label: "Pre-Owned (Used)",
               },
             ]}
+            onChange={handleConditionChange}
+            value={condition}
           />
         </ConfigProvider>
       </IonItem>
