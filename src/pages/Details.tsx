@@ -1,6 +1,7 @@
 import { IonCard, IonItem, IonLabel } from "@ionic/react";
 import { ConfigProvider, Select, theme } from "antd";
 import { useState } from "react";
+import "./Details.css";
 
 const CreateListing: React.FC = () => {
   const [includes, setIncludes] = useState("");

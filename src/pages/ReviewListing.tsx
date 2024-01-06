@@ -18,7 +18,6 @@ import {
 } from "@ionic/react";
 import { chevronBack, close, watch } from "ionicons/icons";
 import { useHistory } from "react-router";
-import "./CreateListing.css";
 import "./ReviewListing.css";
 
 const ReviewListing: React.FC = () => {

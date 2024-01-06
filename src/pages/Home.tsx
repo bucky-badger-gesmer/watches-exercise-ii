@@ -24,7 +24,7 @@ import { useRef, useState } from "react";
 import "swiper/css";
 import Photos from "../components/Photos";
 import Price from "../components/Price";
-import CreateListing from "./CreateListing";
+import Details from "./Details";
 import "./Home.css";
 
 const Home: React.FC = () => {
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
           onSlideChange={handleSlideChange}
         >
           <SwiperSlide>
-            <CreateListing />
+            <Details />
           </SwiperSlide>
           <SwiperSlide>
             <Photos />
@@ -133,7 +133,29 @@ const Home: React.FC = () => {
             initialBreakpoint={0.75}
             breakpoints={[0, 0.75]}
           >
-            <div className="block">Block of Content</div>
+            <div className="block">
+              <IonHeader>
+                <IonToolbar>
+                  <IonButtons slot="start">
+                    <IonButton onClick={() => modal.current?.dismiss()}>
+                      Cancel
+                    </IonButton>
+                  </IonButtons>
+                  <IonTitle>Welcome</IonTitle>
+                  <IonButtons slot="end">
+                    <IonButton strong={true} onClick={() => confirm()}>
+                      Confirm
+                    </IonButton>
+                  </IonButtons>
+                </IonToolbar>
+              </IonHeader>
+              <IonButton
+                style={{ width: "100%", marginTop: "auto" }}
+                color="light"
+              >
+                SUBMIT
+              </IonButton>
+            </div>
           </IonModal>
         </IonToolbar>
       </IonFooter>
