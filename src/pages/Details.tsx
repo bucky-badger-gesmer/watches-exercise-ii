@@ -38,7 +38,6 @@ const CreateListing: React.FC = () => {
     setCondition(e);
   };
 
-  console.log("poop", includes, productionYear, condition);
   return (
     <IonCard style={{ width: "100%", height: 500 }}>
       <IonItem>
@@ -61,8 +60,6 @@ const CreateListing: React.FC = () => {
             ]}
             onChange={handleIncludesChange}
             value={includes}
-            // onSelect={handleIncludesChange}
-            // allowClear={true}
           />
         </ConfigProvider>
       </IonItem>
@@ -91,7 +88,7 @@ const CreateListing: React.FC = () => {
         >
           <Select
             style={{ width: "100%" }}
-            // defaultValue={"Unknown"}
+            defaultValue={"Unknown"}
             options={[
               {
                 value: "Unworn",
