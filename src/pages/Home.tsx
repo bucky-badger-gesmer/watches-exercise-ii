@@ -131,7 +131,7 @@ const Home: React.FC = () => {
               history.push("/review");
             }}
           >
-            Next
+            NEXT
           </IonButton>
         </IonToolbar>
       </IonFooter>
