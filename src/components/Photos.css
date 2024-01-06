@@ -10,3 +10,11 @@
 .square:hover {
   cursor: pointer;
 }
+
+.squarePhoto {
+  width: 100px; /* Size of the square */
+  height: 100px; /* Size of the square */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+}

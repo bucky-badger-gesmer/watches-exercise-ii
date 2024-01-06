@@ -46,7 +46,7 @@ const Photos: React.FC = () => {
         {photos.length > 0 &&
           photos.map((photo) => {
             return (
-              <div className="square">
+              <div className="squarePhoto">
                 <IonImg src={photo.webviewPath} />
               </div>
             );
