@@ -20,6 +20,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "@ionic/react/css/ionic-swiper.css";
 import { useState } from "react";
+import { useHistory } from "react-router";
 import "swiper/css";
 import Photos from "../components/Photos";
 import Price from "../components/Price";
@@ -28,6 +29,7 @@ import "./Home.css";
 
 const Home: React.FC = () => {
   const [prevSlideIndex, setPrevSlideIndex] = useState(0);
+  const history = useHistory();
 
   const handleSlideChange = (swiper: any) => {
     const currentSlideIndex = swiper.realIndex;
@@ -122,7 +124,13 @@ const Home: React.FC = () => {
       </IonContent>
       <IonFooter>
         <IonToolbar>
-          <IonButton color="light" style={{ width: "100%" }}>
+          <IonButton
+            color="light"
+            style={{ width: "100%" }}
+            onClick={() => {
+              history.push("/review");
+            }}
+          >
             Next
           </IonButton>
         </IonToolbar>
