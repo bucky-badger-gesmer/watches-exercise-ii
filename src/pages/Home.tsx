@@ -232,14 +232,16 @@ const Home: React.FC = () => {
                     </IonRow>
                     <IonRow>
                       <IonCol size="12">
-                        {photos.length > 0 &&
-                          photos.map((photo) => {
-                            return (
-                              <div className="squarePhoto">
-                                <IonImg src={photo.webviewPath} />
-                              </div>
-                            );
-                          })}
+                        <div style={{ display: "flex" }}>
+                          {photos.length > 0 &&
+                            photos.map((photo) => {
+                              return (
+                                <div className="squarePhoto">
+                                  <IonImg src={photo.webviewPath} />
+                                </div>
+                              );
+                            })}
+                        </div>
                       </IonCol>
                     </IonRow>
                     <IonRow>
