@@ -1,6 +1,6 @@
 import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "./pages/Home";
 
 /* Core CSS required for Ionic components to work properly */
@@ -20,7 +20,6 @@ import "@ionic/react/css/text-alignment.css";
 import "@ionic/react/css/text-transformation.css";
 
 /* Theme variables */
-import ReviewListing from "./pages/ReviewListing";
 import "./theme/variables.css";
 
 setupIonicReact();
@@ -29,14 +28,8 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
-        </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
-        </Route>
-        <Route exact path="/review">
-          <ReviewListing />
+          <Home />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
