@@ -1,13 +1,18 @@
 import { IonCard, IonItem, IonLabel } from "@ionic/react";
-import { ConfigProvider, Select, theme } from "antd";
-import { useState } from "react";
+import { ConfigProvider, theme } from "antd";
 import "./Details.css";
 
-const CreateListing: React.FC = () => {
-  const [includes, setIncludes] = useState("");
-  const [productionYear, setProductionYear] = useState("");
-  const [condition, setCondition] = useState("");
+interface DetailsProps {
+  setIncludes: React.Dispatch<React.SetStateAction<string>>;
+  setProductionYear: React.Dispatch<React.SetStateAction<string>>;
+  setCondition: React.Dispatch<React.SetStateAction<string>>;
+}
 
+const Details: React.FC<DetailsProps> = ({
+  setIncludes,
+  setProductionYear,
+  setCondition,
+}: DetailsProps) => {
   const currentYear = new Date().getFullYear();
   const years = [];
   for (let year = currentYear; year >= 1900; year--) {
@@ -27,19 +32,19 @@ const CreateListing: React.FC = () => {
   });
 
   const handleIncludesChange = (e: any) => {
-    setIncludes(e);
+    setIncludes(e.target.value);
   };
 
   const handleProductionYearChange = (e: any) => {
-    setProductionYear(e);
+    setProductionYear(e.target.value);
   };
 
   const handleConditionChange = (e: any) => {
-    setCondition(e);
+    setCondition(e.target.value);
   };
 
   return (
-    <IonCard style={{ width: "100%", height: 500 }}>
+    <IonCard style={{ width: "100%" }}>
       <IonItem>
         <IonLabel>INCLUDES</IonLabel>
         <ConfigProvider
@@ -47,9 +52,12 @@ const CreateListing: React.FC = () => {
             algorithm: theme.darkAlgorithm,
           }}
         >
-          <Select
-            style={{ width: "100%" }}
-            options={[
+          <select
+            style={{ display: "flex", width: "100%" }}
+            onChange={handleIncludesChange}
+          >
+            {[
+              { value: "", label: "" },
               { value: "Naked (N/A)", label: "Naked (N/A)" },
               { value: "Card (Papers)", label: "Card (Papers)" },
               { value: "Box", label: "Box" },
@@ -57,10 +65,10 @@ const CreateListing: React.FC = () => {
                 value: "Full Set - Card & Box",
                 label: "Full Set - Card & Box",
               },
-            ]}
-            onChange={handleIncludesChange}
-            value={includes}
-          />
+            ].map((o) => (
+              <option value={o.value}>{o.label}</option>
+            ))}
+          </select>
         </ConfigProvider>
       </IonItem>
       <IonItem>
@@ -70,13 +78,14 @@ const CreateListing: React.FC = () => {
             algorithm: theme.darkAlgorithm,
           }}
         >
-          <Select
-            style={{ width: "100%" }}
-            defaultValue={"Unknown"}
-            options={options}
+          <select
+            style={{ display: "flex", width: "100%" }}
             onChange={handleProductionYearChange}
-            value={productionYear}
-          />
+          >
+            {[{ value: "", label: "" }, ...options].map((o) => (
+              <option value={o.value}>{o.label}</option>
+            ))}
+          </select>
         </ConfigProvider>
       </IonItem>
       <IonItem>
@@ -86,10 +95,12 @@ const CreateListing: React.FC = () => {
             algorithm: theme.darkAlgorithm,
           }}
         >
-          <Select
-            style={{ width: "100%" }}
-            defaultValue={"Unknown"}
-            options={[
+          <select
+            style={{ display: "flex", width: "100%" }}
+            onChange={handleConditionChange}
+          >
+            {[
+              { value: "", label: "" },
               {
                 value: "Unworn",
                 label: "Unworn",
@@ -102,14 +113,14 @@ const CreateListing: React.FC = () => {
                 value: "Pre-Owned (Used)",
                 label: "Pre-Owned (Used)",
               },
-            ]}
-            onChange={handleConditionChange}
-            value={condition}
-          />
+            ].map((o) => (
+              <option value={o.value}>{o.label}</option>
+            ))}
+          </select>
         </ConfigProvider>
       </IonItem>
     </IonCard>
   );
 };
 
-export default CreateListing;
+export default Details;

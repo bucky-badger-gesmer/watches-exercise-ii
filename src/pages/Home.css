@@ -22,3 +22,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.watchInfoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.squarePhoto {
+  width: 100px; /* Size of the square */
+  height: 100px; /* Size of the square */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+}

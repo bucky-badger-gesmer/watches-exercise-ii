@@ -1,14 +1,23 @@
 import { IonCard, IonItem, IonLabel } from "@ionic/react";
 import { ConfigProvider, Input, theme } from "antd";
-import { useState } from "react";
 
-const Price: React.FC = () => {
-  const [listPrice, setListPrice] = useState<number>(0);
+interface PriceProps {
+  listPrice: string;
+  setListPrice: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Price: React.FC<PriceProps> = ({
+  listPrice,
+  setListPrice,
+}: PriceProps) => {
+  //   const [price, setPrice] = useState<number>(0);
 
   const handleInput = (e: any) => {
     const newValue = e.target.value;
     if (newValue === "" || /^[0-9]+(\.[0-9]+)?$/.test(newValue)) {
-      setListPrice(newValue);
+      //   setPrice(newValue);
+      const newListPrice = formatUSD(2.5 * newValue);
+      setListPrice(newListPrice);
     }
   };
 
@@ -38,7 +47,7 @@ const Price: React.FC = () => {
         >
           <IonLabel>LIST PRICE</IonLabel>
           <h3>
-            <strong>{formatUSD(2.5 * listPrice)}</strong>
+            <strong>{listPrice}</strong>
           </h3>
         </div>
       </IonItem>

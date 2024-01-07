@@ -1,6 +1,5 @@
 import { Camera, CameraResultType, CameraSource } from "@capacitor/camera";
 import { IonCard, IonImg, IonItem, IonLabel } from "@ionic/react";
-import { useState } from "react";
 import "./Photos.css";
 
 export interface UserPhoto {
@@ -8,8 +7,13 @@ export interface UserPhoto {
   webviewPath?: string;
 }
 
-const Photos: React.FC = () => {
-  const [photos, setPhotos] = useState<UserPhoto[]>([]);
+interface PhotosProps {
+  photos: UserPhoto[];
+  setPhotos: React.Dispatch<React.SetStateAction<UserPhoto[]>>;
+}
+
+const Photos: React.FC<PhotosProps> = ({ photos, setPhotos }: PhotosProps) => {
+  //   const [photos, setPhotos] = useState<UserPhoto[]>([]);
 
   const takePicture = async () => {
     try {
