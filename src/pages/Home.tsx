@@ -265,7 +265,7 @@ const Home: React.FC = () => {
               </IonCard>
             </IonContent>
             <IonButton
-              style={{ width: "100%", marginTop: "auto" }}
+              style={{ width: "100%", position: "absolute", bottom: 0 }}
               color="light"
             >
               SUBMIT
